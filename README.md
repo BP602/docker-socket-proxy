@@ -2,6 +2,14 @@
 
 OpenClaw skill for managing Docker containers via a [Tecnativa docker-socket-proxy](https://github.com/Tecnativa/docker-socket-proxy) instance.
 
+## Why docker-socket-proxy
+
+Exposing the raw Docker socket to an agent is equivalent to giving it root access to the host — it can mount any path, run privileged containers, or do anything the Docker daemon allows.
+
+docker-socket-proxy sits in front of the socket and acts as a firewall. Each API section (containers, images, networks, volumes, Swarm, etc.) is individually toggled on or off via env vars. The agent can only do what you explicitly enable. If you only turn on `CONTAINERS=1` and `ALLOW_RESTARTS=1`, it can restart containers and nothing else.
+
+Use this skill when you want an agent that can manage Docker without handing it the keys to the host.
+
 ## Requirements
 
 - [`tecnativa/docker-socket-proxy`](https://github.com/Tecnativa/docker-socket-proxy) running and exposed over TCP

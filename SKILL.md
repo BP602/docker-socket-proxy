@@ -1,6 +1,6 @@
 ---
 name: docker-socket-proxy
-description: Manage a remote Docker host via a Tecnativa docker-socket-proxy instance (requires docker-socket-proxy exposed over TCP). Covers the full Docker REST API surface: container lifecycle (list, start, stop, restart, kill, pause, unpause, rename, exec), inspection (inspect, top, logs, stats, filesystem changes), image management (list, inspect, history, prune), network management (list, inspect, prune), volume management (list, inspect, prune), Swarm (services, tasks, nodes, configs, secrets), plugins, system info, disk usage, and event streaming.
+description: Manage a remote Docker host via a Tecnativa docker-socket-proxy instance. Unlike raw Docker socket access (which is root-equivalent), docker-socket-proxy acts as a firewall: each API section is individually enabled or disabled via env vars, so the agent only gets access to what you explicitly allow. Requires docker-socket-proxy exposed over TCP. Covers the full Docker REST API surface: container lifecycle (list, start, stop, restart, kill, pause, unpause, rename, exec), inspection (logs, stats, top, changes), images, networks, volumes, Swarm, plugins, system info, and event streaming.
 homepage: https://github.com/BP602/docker-socket-proxy
 license: MIT
 metadata: {"openclaw":{"requires":{"bins":["curl","jq"]}}}
