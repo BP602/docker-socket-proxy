@@ -89,4 +89,4 @@ If neither is set, defaults to `http://localhost:2375`.
 
 ## License
 
-MIT
+MIT-0 (as required by ClawhHub)
